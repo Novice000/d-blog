@@ -1,6 +1,7 @@
 import React from 'react';
 import { Carousel, CarouselItem, CarouselNext, CarouselPrevious, CarouselContent } from '@/components/ui/carousel';
 import ArtistCard, { ArtistType } from './card';
+import { motion } from "framer-motion";
 
 function ArtistCarousel() {
     const data: ArtistType[] = [
@@ -66,13 +67,16 @@ function ArtistCarousel() {
       },
     ];
     return (
-      <div className="h-full px-[130px] mt-10 flex flex-col relative items-center">
+      <motion.div 
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, delay: 0.5 }}
+      className="h-full px-[130px] mt-10 flex flex-col relative items-center">
         <Carousel
           opts={{
             align: "center",
             slidesToScroll: 4,
             dragFree: true,
-            watchDrag: true,
           }}
           className="flex flex-col"
         >
@@ -91,7 +95,7 @@ function ArtistCarousel() {
             <CarouselNext className=" bg-[#0F3809] static w-full md:w-[100px] h-2" />
           </div>
         </Carousel>
-      </div>
+      </motion.div>
     );
 }
 

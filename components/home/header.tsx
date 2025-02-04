@@ -1,11 +1,17 @@
 import React from "react";
 import halfFilled from "@/assets/vector.svg";
 import Image from "next/image";
+import { motion } from "motion/react";
+
 
 
 export default function Header() {
     return (
-      <div className="bg-[#041C00] text-white flex items-center justify-between px-4 py-2 w-full px-4 md:px-[120px] py-7">
+      <motion.div 
+      initial = {{ y: "-100vw",  }}
+      animate = {{ y: 0 }}
+      transition = {{ duration: 0.5, type: "spring", stiffness: 100 }}
+      className="bg-[#041C00] text-white flex items-center justify-between px-4 py-2 w-full px-4 md:px-[120px] py-7">
         <div>
           <h1 className="text-5xl font-bold">D{"'"} BLOG</h1>
         </div>
@@ -24,6 +30,6 @@ export default function Header() {
             <li>Contact Us</li>
           </ul>
         </nav>
-      </div>
+      </motion.div>
     );
 }
